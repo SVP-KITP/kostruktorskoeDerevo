@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+
+
+
+    <top>
+        <MenuBar BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Открыть файл XLS" />
+                  <MenuItem mnemonicParsing="false" text="Сохранить файл XlS" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleClose" text="Закрыть программу" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="О программе">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleWinRazrab" text="Руководство пользователя">
+                            <accelerator>
+                                <KeyCodeCombination alt="UP" code="D" control="UP" meta="UP" shift="ANY" shortcut="UP" />
+                            </accelerator>
+                        </MenuItem>
+                        <MenuItem mnemonicParsing="false" onAction="#handleWinAbout" text="О программе" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+   <left>
+      <TreeView fx:id="tView" editable="true" onEditStart="#handleTest" prefHeight="335.0" prefWidth="229.0" BorderPane.alignment="CENTER" />
+   </left>
+   <bottom>
+      <ButtonBar buttonMinWidth="25.0" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+            <TextField fx:id="tField" prefHeight="25.0" prefWidth="223.0" />
+          <Button fx:id="btnOpen" mnemonicParsing="false" onAction="#handleOpen" text="Открыть" />
+            <Button fx:id="btnPrepare" mnemonicParsing="false" onAction="#handlePrepare" text="Подготовить" />
+            <Button fx:id="btnSave" disable="true" mnemonicParsing="false" onAction="#handleSave" prefHeight="25.0" text="Сохранить " />
+            <Button fx:id="btnClose" mnemonicParsing="false" onAction="#handleClose" text="Выйти" />
+        </buttons>
+         <BorderPane.margin>
+            <Insets right="10.0" />
+         </BorderPane.margin>
+      </ButtonBar>
+   </bottom>
+   <right>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="tFieldEdit">
+               <VBox.margin>
+                  <Insets right="5.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Button fx:id="btnEdit" disable="true" mnemonicParsing="false" onAction="#handleEditXLS" text="Изменить">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <TextArea fx:id="tArea" prefHeight="200.0" prefWidth="200.0" promptText="Информация о детали..." BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+      </TextArea>
+   </center>
+</BorderPane>
